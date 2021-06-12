@@ -27,7 +27,9 @@ def index(request):
         link = f"<li><a href=\"{redirect_path}\">{month.capitalize()}</a></li>"
         response+=link
     response+= "</ul>"
-    return HttpResponse(response)
+    return render(request,"challenges/index.html",{
+        "months":months
+    })
 
 
 doRedirect = True
