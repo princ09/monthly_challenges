@@ -5,6 +5,12 @@
 {% endblock  %}
 
 {% block content %}
+    {% include "challenges/includes/header.html" %}
+
     <h1>{{title | title}}</h1>
-    <h3>{{text}}</h3>
+    {% if text is not None %}
+        <h3>{{text}}</h3>
+    {% else %}
+        <p> There is no Challange for this month yet ! </p>    
+    {% endif %}
 {% endblock  %}
