@@ -3,3 +3,8 @@
 html{
     font-family: 'Baloo Tammudu 2', cursive;
 }
+	
+body {
+    margin: 0;
+    background-color: #1a1a1a;
+  }
