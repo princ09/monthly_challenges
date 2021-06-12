@@ -36,7 +36,10 @@ def monthly_challenges(request,month):
     if monthly_challenges_list.get(month):
         monthly_challenge = monthly_challenges_list[month]
         response = f"<h1>{monthly_challenge}</h1>"
-        return render(request, "challenges/challenge.html") 
+        return render(request, "challenges/challenge.html",{
+            "text":monthly_challenge,
+            "title":month,
+        }) 
     else:
         return HttpResponse("<h1>Do your own thing</h1>")       
 
