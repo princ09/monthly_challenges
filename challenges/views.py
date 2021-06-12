@@ -2,6 +2,7 @@ from django.http.response import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.urls.base import reverse
+from django.template.loader import render_to_string
 # Create your views here.
 
 monthly_challenges_list = {
@@ -36,7 +37,8 @@ def monthly_challenges(request,month):
     if monthly_challenges_list.get(month):
         monthly_challenge = monthly_challenges_list[month]
         response = f"<h1>{monthly_challenge}</h1>"
-        return HttpResponse(response) 
+        response_data = render_to_string("challenges/challenge.html")
+        return HttpResponse(response_data) 
     else:
         return HttpResponse("<h1>Do your own thing</h1>")       
 
